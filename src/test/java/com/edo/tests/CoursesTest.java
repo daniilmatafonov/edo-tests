@@ -1,8 +1,8 @@
 package com.edo.tests;
 
-import com.edo.pages.courses.CoursesPage;
 import com.edo.pages.LoginPage;
 import com.edo.pages.MainPage;
+import com.edo.pages.courses.CoursesPage;
 import com.edo.pages.lessons.LessonsPage;
 import org.junit.jupiter.api.Test;
 
@@ -19,8 +19,8 @@ public class CoursesTest extends BaseTest{
     @Test
     public void checkLessonIsAvailable() {
         open("/");
-        loginPage.fillLogin("evakan@bk.ru");
-        loginPage.fillPassword("TNKz6y8j");
+        loginPage.fillLogin(LOGIN);
+        loginPage.fillPassword(PASSWORD);
         loginPage.login();
         mainPage.chooseCoursesModule();
         coursesPage.chooseCreatedCourses();

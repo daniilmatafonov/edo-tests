@@ -7,11 +7,13 @@ public interface IConfig extends Config {
 
     @Key("browser")
     String browser();
-
-    @Key("remote_url")
-    String remoteUrl();
-
     @Key("browser_version")
     String browserVersion();
+    @Key("login")
+    String login();
+    @Key("pwd")
+    String pwd();
+    @Key("remote_url")
+    String remoteUrl();
 
 }

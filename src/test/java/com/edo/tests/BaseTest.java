@@ -9,21 +9,24 @@ import org.junit.jupiter.api.BeforeAll;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
-import static com.edo.helpers.AttachmentHelper.*;
+import static com.edo.helpers.AttachmentHelper.attachPageSource;
+import static com.edo.helpers.AttachmentHelper.attachScreenshot;
 
 public class BaseTest {
-
     public static final IConfig CONFIG = ConfigFactory.create(IConfig.class, System.getProperties());
     private static final String ALLURE_SELENIDE_LISTENER_NAME = "AllureSelenide";
     private static final String URL = "https://эдо.образование33.рф/login/index.php";
+    public static final String LOGIN = CONFIG.login();
+    public static final String PASSWORD = CONFIG.pwd();
 
     @BeforeAll
     static void setup() {
         addListener(ALLURE_SELENIDE_LISTENER_NAME, new AllureSelenide().screenshots(true).savePageSource(true));
         Configuration.timeout = 10000;
+        Configuration.pageLoadTimeout = 50000;
         Configuration.baseUrl = URL;
-        Configuration.browser = "chrome";
-        Configuration.browserVersion = "87.0";
+        Configuration.browser = CONFIG.browser();
+        Configuration.browserVersion = CONFIG.browserVersion();
         if (CONFIG.remoteUrl() != null)
             Configuration.remote = CONFIG.remoteUrl();
     }

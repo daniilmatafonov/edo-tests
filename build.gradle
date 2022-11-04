@@ -24,7 +24,7 @@ allure {
     }
 }
 dependencies {
-    implementation "org.aeonbits.owner:owner:$ownerVersion"
+    testImplementation "org.aeonbits.owner:owner:$ownerVersion"
     testImplementation (
             "com.github.javafaker:javafaker:$javaFakerVersion",
             "com.codeborne:selenide:$selenideVersion",
